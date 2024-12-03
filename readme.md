@@ -33,14 +33,21 @@
       - bike.validation.ts
   - errors
     - ApiError.ts
+    - handleCastError.ts
     - handleValidationError.ts
     - handleZodError.ts
   - middlewares
     - globalErrorHandler.ts
+    - notFound.ts
     - validateRequest.ts
   - shared
     - catchAsync.ts
     - sendResponse.ts
   - utils
     - jwt.ts
+- .env
+- .gitignore
+- eslint.config.mjs
+- package.json
+- tsconfig.json
 
