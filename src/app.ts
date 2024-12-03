@@ -1,10 +1,14 @@
-import express, { Request, Response } from "express";
+import express, { Request, Response } from 'express';
+import cors from 'cors';
 
 const app = express();
-const port = 5000;
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Server is running");
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+
+app.get('/', (req: Request, res: Response) => {
+  res.send('Server is running');
 });
 
 export default app;
