@@ -1,65 +1,94 @@
+import {
+  BikeBrandCountry,
+  BikeBrandName,
+  TABS,
+  TBikeABS,
+  TBrakeType,
+  TClutchType,
+  TCompressionRatio,
+  TCoolingType,
+  TEmissionStandard,
+  TEngineType,
+  TFrameType,
+  TFrontSuspension,
+  TFuelCapacity,
+  TFuelSystem,
+  TFuelType,
+  TIgnitionType,
+  TLightingType,
+  TMeasurementUnit,
+  TRearSuspension,
+  TRegion,
+  TStarterType,
+  TTireType,
+  TTransmissionType,
+  TWeightUnit,
+  TWheelType,
+  TYesNo,
+} from './bike.constant';
+
 export type IBrand = {
-  name: string;
-  country: string;
+  name: BikeBrandName;
+  country: BikeBrandCountry;
 };
 
 export type IVariantSpecifications = {
-  emissionStandard: string;
-  fuelSystem: string;
-  ABS: string;
+  emissionStandard: TEmissionStandard;
+  fuelSystem: TFuelSystem;
+  ABS: TABS;
 };
 
 export type IVariant = {
-  region: string;
+  region: TRegion;
   specifications: IVariantSpecifications;
 };
 
 export type ITransmission = {
-  type: string;
-  clutch: string;
+  type: TTransmissionType;
+  clutch: TClutchType;
 };
 
 export type IEngine = {
   capacity: string;
-  type: string;
-  fuelType: string;
+  type: TEngineType;
+  fuelType: TFuelType;
   maxPower: string;
   torque: string;
-  cooling: string;
-  fuelSystem: string;
-  compressionRatio: string;
-  emissionStandard: string;
-  ignition: string;
-  starter: string;
+  cooling: TCoolingType;
+  fuelSystem: TFuelSystem;
+  compressionRatio: TCompressionRatio;
+  emissionStandard: TEmissionStandard;
+  ignition: TIgnitionType;
+  starter: TStarterType;
   transmission: ITransmission;
 };
 
 export type IDimensions = {
-  overallLength: string;
-  overallWidth: string;
-  overallHeight: string;
-  wheelbase: string;
-  groundClearance: string;
-  seatHeight: string;
-  dryWeight: string;
-  fuelCapacity: string;
+  overallLength: TMeasurementUnit;
+  overallWidth: TMeasurementUnit;
+  overallHeight: TMeasurementUnit;
+  wheelbase: TMeasurementUnit;
+  groundClearance: TMeasurementUnit;
+  seatHeight: TMeasurementUnit;
+  dryWeight: TWeightUnit;
+  fuelCapacity: TFuelCapacity;
 };
 
 export type IBrake = {
-  type: string;
-  ABS: string;
+  type: TBrakeType;
+  ABS: TBikeABS;
 };
 
 export type IWheel = {
-  type: string;
-  tire: string;
+  type: TWheelType;
+  tire: TTireType;
 };
 
 export type IChassis = {
-  frameType: string;
+  frameType: TFrameType;
   suspension: {
-    front: string;
-    rear: string;
+    front: TFrontSuspension;
+    rear: TRearSuspension;
   };
   brakes: {
     front: IBrake;
@@ -72,18 +101,17 @@ export type IChassis = {
 };
 
 export type IElectronics = {
-  tractionControl: string;
-  quickShifter: string;
-  rideByWire: string;
-  slipperClutch: string;
+  tractionControl: TYesNo; 
+  quickShifter: TYesNo;    
+  rideByWire: TYesNo;      
+  slipperClutch: TYesNo;   
 };
 
 export type ILighting = {
-  headlight: string;
-  taillight: string;
-  indicators: string;
+  headlight: TLightingType; 
+  taillight: TLightingType;  
+  indicators: TLightingType; 
 };
-
 export type IFeatures = {
   display: string;
   connectivity: string;
