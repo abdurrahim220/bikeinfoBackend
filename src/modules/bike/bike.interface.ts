@@ -162,3 +162,7 @@ export type IBike = {
   images: IImages;
   price: IPrice;
 };
+
+export type IBikeFilters = {
+  searchTerm?: string;
+};

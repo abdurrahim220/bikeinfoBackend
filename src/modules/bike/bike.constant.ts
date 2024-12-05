@@ -83,3 +83,26 @@ export type TRearSuspension =
 export type TYesNo = 'Yes' | 'No';
 
 export type TLightingType = 'LED' | 'Halogen' | 'Xenon' | 'Halogen Projector' | 'LED Projector';
+
+
+export const bikeSearchableFields = [
+  'name',
+  'brand',
+  'model',
+  'year',
+  'color',
+  'engineType',
+  'fuelType',
+  'coolingType',
+  'ignitionType',
+  'starterType',
+  'frameType',
+  'frontSuspension',
+  'rearSuspension'
+];
+
+export const bikeFilterableFields = [
+  'searchTerm',
+  'brand',
+  'model',
+];
