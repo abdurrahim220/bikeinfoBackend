@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-this-alias */
 import { Schema, model } from 'mongoose';
 import { IBike } from './bike.interface';
 
@@ -29,6 +30,7 @@ const bikeSchema = new Schema<IBike>(
           type: String,
           required: true,
           enum: [
+            'Global',
             'Asia',
             'Europe',
             'North America',
@@ -353,19 +355,19 @@ const bikeSchema = new Schema<IBike>(
       orange: {
         singleImage: {
           type: String,
-          required: true,
+          required: false,
         },
       },
       black: {
         singleImage: {
           type: String,
-          required: true,
+          required: false,
         },
       },
       white: {
         singleImage: {
           type: String,
-          required: true,
+          required: false,
         },
       },
     },
@@ -391,5 +393,26 @@ const bikeSchema = new Schema<IBike>(
     },
   },
 );
+
+bikeSchema.pre('save', async function (next) {
+  const bike = this;
+
+  const existingBike = await Bike.findOne({
+    'brand.name': bike.brand.name,
+    model: bike.model,
+    year: bike.year,
+    'variants.specifications.emissionStandard':
+      bike.variants[0].specifications.emissionStandard,
+  });
+
+  if (existingBike) {
+    const error = new Error(
+      'Bike with the same brand, model, year, and emission standard already exists',
+    );
+    return next(error);
+  }
+
+  next();
+});
 
 export const Bike = model<IBike>('Bike', bikeSchema);

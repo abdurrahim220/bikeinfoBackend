@@ -12,6 +12,7 @@ export type TFuelSystem = 'Fuel Injection' | 'Carburetor';
 export type TABS = 'Single Channel' | 'Dual Channel' | 'None';
 
 export type TRegion =
+  | 'Global'
   | 'Asia'
   | 'Europe'
   | 'North America'
@@ -82,8 +83,12 @@ export type TRearSuspension =
   | 'Single Shock';
 export type TYesNo = 'Yes' | 'No';
 
-export type TLightingType = 'LED' | 'Halogen' | 'Xenon' | 'Halogen Projector' | 'LED Projector';
-
+export type TLightingType =
+  | 'LED'
+  | 'Halogen'
+  | 'Xenon'
+  | 'Halogen Projector'
+  | 'LED Projector';
 
 export const bikeSearchableFields = [
   'name',
@@ -98,11 +103,7 @@ export const bikeSearchableFields = [
   'starterType',
   'frameType',
   'frontSuspension',
-  'rearSuspension'
+  'rearSuspension',
 ];
 
-export const bikeFilterableFields = [
-  'searchTerm',
-  'brand',
-  'model',
-];
+export const bikeFilterableFields = ['searchTerm', 'brand', 'model'];
