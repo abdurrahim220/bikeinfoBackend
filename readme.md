@@ -7,8 +7,21 @@
   - server.ts
   - config
     - index.ts
+  - constants
+    - pagination.ts
+  - errors
+    - ApiError.ts
+    - handleCastError.ts
+    - handleValidationError.ts
+    - handleZodError.ts
   - interfaces
+    -common.ts
     - error.interface.ts
+    - pagination.ts
+  - middlewares
+    - globalErrorHandler.ts
+    - notFound.ts
+    - validateRequest.ts
   - modules
     - auth
       - auth.controller.ts
@@ -25,23 +38,19 @@
       - user.service.ts
       - user.validation.ts
     - bike
+      - bike.constant.ts
       - bike.controller.ts
       - bike.interface.ts
       - bike.model.ts
       - bike.route.ts
       - bike.service.ts
       - bike.validation.ts
-  - errors
-    - ApiError.ts
-    - handleCastError.ts
-    - handleValidationError.ts
-    - handleZodError.ts
-  - middlewares
-    - globalErrorHandler.ts
-    - notFound.ts
-    - validateRequest.ts
+  
+
   - shared
     - catchAsync.ts
+    - paginationHelper.ts
+    - pick.ts
     - sendResponse.ts
   - utils
     - jwt.ts
@@ -50,4 +59,4 @@
 - eslint.config.mjs
 - package.json
 - tsconfig.json
-
+- vercel.json
