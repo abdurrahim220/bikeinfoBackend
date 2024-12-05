@@ -46,7 +46,6 @@
       - bike.service.ts
       - bike.validation.ts
   
-
   - shared
     - catchAsync.ts
     - paginationHelper.ts

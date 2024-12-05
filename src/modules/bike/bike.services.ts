@@ -1,4 +1,4 @@
-import { SortOrder } from 'mongoose';
+import mongoose, { SortOrder } from 'mongoose';
 
 import { bikeSearchableFields } from './bike.constant';
 import { IBike, IBikeFilters } from './bike.interface';
@@ -52,6 +52,10 @@ const getAllBikes = async (
     sortConditions[sortBy] = sortOrder as SortOrder;
   }
 
+  andConditions.push({
+    isDeleted: { $ne: true },
+  });
+
   const whereConditions =
     andConditions.length > 0 ? { $and: andConditions } : {};
 
@@ -91,13 +95,40 @@ const updateBike = async (
 
 // Delete bike
 const deleteBike = async (id: string): Promise<IBike | null> => {
-  const result = await Bike.findByIdAndDelete(id);
-  if (!result) {
-    throw new ApiError(httpStatus.NOT_FOUND, 'Bike not found!');
-  }
-  return result;
-};
+  const session = await mongoose.startSession();
 
+  try {
+    session.startTransaction();
+
+    const bike = await Bike.findById(id).session(session);
+    if (!bike) {
+      throw new ApiError(httpStatus.NOT_FOUND, 'Bike not found!');
+    }
+    if (bike.isDeleted) {
+      throw new ApiError(
+        httpStatus.BAD_REQUEST,
+        'This bike has already been deleted.',
+      );
+    }
+
+    const result = await Bike.findByIdAndUpdate(
+      id,
+      { isDeleted: true },
+      {
+        new: true,
+        session,
+      },
+    );
+
+    await session.commitTransaction();
+    return result;
+  } catch (error) {
+    await session.abortTransaction();
+    throw error;
+  } finally {
+    session.endSession();
+  }
+};
 export const BikeService = {
   createBike,
   getAllBikes,

@@ -161,6 +161,7 @@ export type IBike = {
   performance: IPerformance;
   images: IImages;
   price: IPrice;
+  isDeleted: boolean;
 };
 
 export type IBikeFilters = {

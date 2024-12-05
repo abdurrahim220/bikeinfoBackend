@@ -14,6 +14,7 @@ app.use(
     origin: ['http://localhost:5000', 'https://bike-info360-tka.vercel.app'],
   }),
 );
+
 app.use('/api/v1', router);
 
 app.get('/', (req: Request, res: Response) => {

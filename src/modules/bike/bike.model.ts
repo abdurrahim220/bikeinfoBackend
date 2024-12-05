@@ -385,6 +385,10 @@ const bikeSchema = new Schema<IBike>(
         required: true,
       },
     },
+    isDeleted: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,
@@ -414,5 +418,32 @@ bikeSchema.pre('save', async function (next) {
 
   next();
 });
+
+bikeSchema?.pre('findOne', function (next) {
+  this.where({
+    isDeleted: { $ne: true },
+  });
+  next();
+});
+
+bikeSchema?.pre('find', function (next) {
+  this.where({
+    isDeleted: { $ne: true },
+  });
+  next();
+});
+
+// // filter deleted bike
+// bikeSchema.virtual('deletedBike').get(function () {
+//   return this.isDeleted;
+// });
+
+// bikeSchema.set('toJSON', {
+//   virtuals: true,
+//   transform: (doc, ret) => {
+//     delete ret.isDeleted;
+//     return ret;
+//   },
+// });
 
 export const Bike = model<IBike>('Bike', bikeSchema);
