@@ -2,7 +2,7 @@ import express from 'express';
 import { BikeController } from './bike.controller';
 
 import validateRequest from '../../middlewares/validateRequest';
-import { BikeValidation } from './bike.validation';
+import { BikeValidation } from './bike.validation2';
 
 const router = express.Router();
 

@@ -4,6 +4,7 @@ export type BikeBrandName =
   | 'Suzuki'
   | 'KTM'
   | 'Hero'
+  | 'TVS'
   | 'Bajaj';
 
 export type BikeBrandCountry = 'Japan' | 'India' | 'Austria';
@@ -48,6 +49,7 @@ export type TIgnitionType =
   | 'Digital'
   | 'TCI'
   | 'DC-CDI'
+  | 'ECU-Controlled'
   | 'AC-CDI';
 
 export type TStarterType = 'Electric' | 'Kick' | 'Electric & Kick';
@@ -58,21 +60,31 @@ export type TMeasurementUnit = `${number}mm` | `${number}cm` | `${number}in`;
 export type TWeightUnit = `${number}kg` | `${number}lbs`;
 export type TFuelCapacity = `${number}L` | `${number}gal`;
 
-export type TBrakeType = 'Disc' | 'Drum' | 'CBS';
+export type TBrakeType = 'Disc' | 'Drum' | 'CBS' | 'Disc/CBS' | 'Drum/CBS' | 'Drum/Disc';
 export type TBikeABS = 'Single Channel' | 'Dual Channel' | 'None';
 export type TWheelType = 'Alloy' | 'Spoke' | 'Steel' | 'Carbon Fiber';
-export type TTireType = 'Radial' | 'Bias Ply' | 'Tubeless' | 'Tube-Type';
+export type TTireType =
+  | 'Radial'
+  | 'Bias Ply'
+  | 'Tubeless'
+  | 'Tube-Type'
+  | 'Tubeless 90/90-17'
+  | 'Tubeless 120/80-17';
 
 export type TFrameType =
   | 'Double Cradle'
   | 'Diamond'
   | 'Backbone'
   | 'Perimeter'
-  | 'Trellis';
+  | 'Delta Box'
+  | 'Trellis'
+  | 'Double Cradle SynchroSTIFF';
 export type TFrontSuspension =
   | 'Telescopic'
   | 'USD Fork'
   | 'Inverted Fork'
+  | 'Telescopic Fork'
+  | 'Telescopic Fork with Hydraulic Dampers'
   | 'Hydraulic Telescopic';
 
 export type TRearSuspension =
@@ -80,7 +92,8 @@ export type TRearSuspension =
   | 'Twin Shock'
   | 'Dual Shock'
   | 'Swingarm'
-  | 'Single Shock';
+  | 'Single Shock'
+  | 'Monoshock with Gas-Assisted Dampers';
 export type TYesNo = 'Yes' | 'No';
 
 export type TLightingType =
@@ -88,7 +101,8 @@ export type TLightingType =
   | 'Halogen'
   | 'Xenon'
   | 'Halogen Projector'
-  | 'LED Projector';
+  | 'LED Projector'
+  | 'LED with DRL';
 
 export const bikeSearchableFields = [
   'name',

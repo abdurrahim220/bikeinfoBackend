@@ -137,9 +137,9 @@ export type IColorImages = {
 
 export type IImages = {
   allImages: string[];
-  orange: IColorImages;
-  black: IColorImages;
-  white: IColorImages;
+  // orange: IColorImages;
+  // black: IColorImages;
+  // white: IColorImages;
 };
 
 export type IPrice = {

@@ -8,12 +8,12 @@ const bikeSchema = new Schema<IBike>(
       name: {
         type: String,
         required: true,
-        enum: ['Yamaha', 'Honda', 'Suzuki', 'KTM', 'Hero', 'Bajaj'],
+        enum: ['Yamaha', 'Honda', 'Suzuki', 'KTM', 'Hero', 'Bajaj', 'TVS'],
       },
       country: {
         type: String,
         required: true,
-        enum: ['Japan', 'India', 'Austria'],
+        enum: ['Japan', 'India', 'Austria', 'China'],
       },
     },
     model: {
@@ -42,12 +42,12 @@ const bikeSchema = new Schema<IBike>(
         specifications: {
           emissionStandard: {
             type: String,
-            required: true,
+            required: false,
             enum: ['BS7', 'BS6', 'BS4', 'Euro5', 'Euro4'],
           },
           fuelSystem: {
             type: String,
-            required: true,
+            required: false,
             enum: ['Fuel Injection', 'Carburetor'],
           },
           ABS: {
@@ -116,7 +116,14 @@ const bikeSchema = new Schema<IBike>(
       ignition: {
         type: String,
         required: true,
-        enum: ['Electronic', 'Digital', 'TCI', 'DC-CDI', 'AC-CDI'],
+        enum: [
+          'Electronic',
+          'Digital',
+          'TCI',
+          'DC-CDI',
+          'AC-CDI',
+          'ECU-Controlled',
+        ],
       },
       starter: {
         type: String,
@@ -174,7 +181,15 @@ const bikeSchema = new Schema<IBike>(
       frameType: {
         type: String,
         required: true,
-        enum: ['Double Cradle', 'Diamond', 'Backbone', 'Perimeter', 'Trellis'],
+        enum: [
+          'Double Cradle',
+          'Diamond',
+          'Backbone',
+          'Perimeter',
+          'Trellis',
+          'Delta Box',
+          'Double Cradle SynchroSTIFF',
+        ],
       },
       suspension: {
         front: {
@@ -185,6 +200,8 @@ const bikeSchema = new Schema<IBike>(
             'USD Fork',
             'Inverted Fork',
             'Hydraulic Telescopic',
+            'Telescopic Fork',
+            'Telescopic Fork with Hydraulic Dampers',
           ],
         },
         rear: {
@@ -196,6 +213,7 @@ const bikeSchema = new Schema<IBike>(
             'Dual Shock',
             'Swingarm',
             'Single Shock',
+            'Monoshock with Gas-Assisted Dampers',
           ],
         },
       },
@@ -203,24 +221,24 @@ const bikeSchema = new Schema<IBike>(
         front: {
           type: {
             type: String,
-            required: true,
-            enum: ['Disc', 'Drum', 'CBS'],
+            required: false,
+            enum: ['Disc', 'Drum', 'CBS', 'Disc/CBS', 'Drum/CBS', 'Drum/Disc'],
           },
           ABS: {
             type: String,
-            required: true,
+            required: false,
             enum: ['Single Channel', 'Dual Channel', 'None'],
           },
         },
         rear: {
           type: {
             type: String,
-            required: true,
-            enum: ['Disc', 'Drum', 'CBS'],
+            required: false,
+            enum: ['Disc', 'Drum', 'CBS', 'Disc/CBS', 'Drum/CBS', 'Drum/Disc'],
           },
           ABS: {
             type: String,
-            required: true,
+            required: false,
             enum: ['Single Channel', 'Dual Channel', 'None'],
           },
         },
@@ -235,7 +253,14 @@ const bikeSchema = new Schema<IBike>(
           tire: {
             type: String,
             required: true,
-            enum: ['Radial', 'Bias Ply', 'Tubeless', 'Tube-Type'],
+            enum: [
+              'Radial',
+              'Bias Ply',
+              'Tubeless',
+              'Tube-Type',
+              'Tubeless 90/90-17',
+              'Tubeless 120/80-17',
+            ],
           },
         },
         rear: {
@@ -247,7 +272,14 @@ const bikeSchema = new Schema<IBike>(
           tire: {
             type: String,
             required: true,
-            enum: ['Radial', 'Bias Ply', 'Tubeless', 'Tube-Type'],
+            enum: [
+              'Radial',
+              'Bias Ply',
+              'Tubeless',
+              'Tube-Type',
+              'Tubeless 90/90-17',
+              'Tubeless 120/80-17',
+            ],
           },
         },
       },
@@ -299,6 +331,7 @@ const bikeSchema = new Schema<IBike>(
             'Xenon',
             'Halogen Projector',
             'LED Projector',
+            'LED with DRL',
           ],
         },
         taillight: {
@@ -310,6 +343,7 @@ const bikeSchema = new Schema<IBike>(
             'Xenon',
             'Halogen Projector',
             'LED Projector',
+            'LED with DRL',
           ],
         },
         indicators: {
@@ -321,6 +355,7 @@ const bikeSchema = new Schema<IBike>(
             'Xenon',
             'Halogen Projector',
             'LED Projector',
+            'LED with DRL',
           ],
         },
       },
@@ -352,24 +387,6 @@ const bikeSchema = new Schema<IBike>(
           required: true,
         },
       ],
-      orange: {
-        singleImage: {
-          type: String,
-          required: false,
-        },
-      },
-      black: {
-        singleImage: {
-          type: String,
-          required: false,
-        },
-      },
-      white: {
-        singleImage: {
-          type: String,
-          required: false,
-        },
-      },
     },
     price: {
       USD: {
