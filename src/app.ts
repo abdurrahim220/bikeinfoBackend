@@ -11,7 +11,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cors({
-    origin: ['http://localhost:5000', 'https://bike-info360-tka.vercel.app'],
+    origin: ['http://localhost:3000', 'https://bike-info360-tka.vercel.app'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
   }),
 );
 
