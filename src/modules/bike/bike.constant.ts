@@ -60,7 +60,13 @@ export type TMeasurementUnit = `${number}mm` | `${number}cm` | `${number}in`;
 export type TWeightUnit = `${number}kg` | `${number}lbs`;
 export type TFuelCapacity = `${number}L` | `${number}gal`;
 
-export type TBrakeType = 'Disc' | 'Drum' | 'CBS' | 'Disc/CBS' | 'Drum/CBS' | 'Drum/Disc';
+export type TBrakeType =
+  | 'Disc'
+  | 'Drum'
+  | 'CBS'
+  | 'Disc/CBS'
+  | 'Drum/CBS'
+  | 'Drum/Disc';
 export type TBikeABS = 'Single Channel' | 'Dual Channel' | 'None';
 export type TWheelType = 'Alloy' | 'Spoke' | 'Steel' | 'Carbon Fiber';
 export type TTireType =
@@ -69,7 +75,16 @@ export type TTireType =
   | 'Tubeless'
   | 'Tube-Type'
   | 'Tubeless 90/90-17'
-  | 'Tubeless 120/80-17';
+  | 'Tubeless 120/80-17'
+  | 'Tubeless 120/80-17'
+  | 'Tubeless 110/70-17'
+  | 'Tubeless 140/70-17'
+  | 'Tubeless 120/70-17'
+  | 'Tubeless 180/55-17'
+  | 'Tubeless 100/80-17'
+  | 'Tubeless 140/60-17'
+  | 'Tubeless 120/70-17'
+  | 'Tubeless 180/55-17';
 
 export type TFrameType =
   | 'Double Cradle'
