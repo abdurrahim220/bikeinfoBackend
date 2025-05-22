@@ -12,13 +12,8 @@
         "dest": "dist/server.js"
       }
     ],
-    "build": {
-      "env": {
-        "NODE_ENV": "production"
-      },
-      "commands": {
-        "build": "tsc"
-      }
+    "buildCommand": "npm run build",
+    "env": {
+      "NODE_ENV": "production"
     }
   }
-  
